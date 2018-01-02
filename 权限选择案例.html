@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>权限选择</title>
+  <script src="jquery-1.12.2.js"></script>
+  <script>
+    $(function (){
+      //点击向右的按钮
+      $("#toRight").click(function(){
+        $("#sel2").append($("#sel1>option:selected"));
+      });
+      $("#toLeft").click(function(){
+        $("#sel1").append($("#sel2>option:selected"));
+      });
+      $("#toAllRight").click(function(){
+        $("#sel2").append($("#sel1>option"));
+      });
+      $("#toAllLeft").click(function(){
+        $("#sel1").append($("#sel2>option"));
+      });
+       
+    })
+  </script>
+</head>
+<body>
+  <div style="margin-left:300px;margin-top:20px; background-color:#999">
+    <select multiple="multiple" id="sel1" style="float:left;width:60px;height:100px">
+      <option>添加</option>
+      <option>删除</option>
+      <option>修改</option>
+      <option>查询</option>
+      <option>打印</option>
+    </select>
+    <div style="width:50px;float:left">
+      <input type="button" name="name" value=" > " id="toRight" style="width:50px">
+      <input type="button" name="name" value=" < " id="toLeft" style="width:50px">
+      <input type="button" name="name" value=">>" id="toAllRight" style="width:50px">
+      <input type="button" name="name" value="<<" id="toAllLeft" style="width:50px">
+    </div>
+    <select multiple="multiple" style="float:left;width:60px;height:100px" id="sel2"></select>
+  </div>
+</body>
+</html>

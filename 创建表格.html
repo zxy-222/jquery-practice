@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>创建表格</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0
+    }
+    div {
+      margin-left: 300px;
+      margin-top: 100px
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+    th,td {
+      border: 1px solid #d0d0d0;
+      padding: 10px;
+      color:#404060;
+    }
+    th {
+      background-color: #09c;
+      font:bold 30px "全新硬笔行书简";
+      color:#fff;
+    }
+    td {
+      font:26px "全新硬笔隶书简"
+    }
+    tr {
+      background-color: #f0f0f0;
+    }
+    tr:hover {
+      cursor:pointer;
+      background-color: #fafafa;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+  <script src="jquery-1.12.2.js"></script>
+  <script>
+    //模拟后台数据
+    var datas = [
+      {
+        name:"赵雷",
+        res:"成都",
+        url:"http://music.163.com/#/song?id=437608773"
+      },
+      {
+        name:"王力宏",
+        res:"大城小爱",
+        url:"http://music.163.com/#/song?id=25986095"
+      },
+      {
+        name:"郑钧",
+        res:"赤裸裸",
+        url:"http://music.163.com/#/song?id=5264275"
+      }
+    ];
+    $(function(){
+      $("#btnCreate").click(function(){
+        var arr=[];
+        //循环数组创建行
+        for(var i=0;i<datas.length;i++){
+          //创建行的同时直接创建列
+          arr.push("<tr><td><a href='"+datas[i].url+"'>"+datas[i].name+"</a></td><td>"+datas[i].res+"</td></tr>");
+        }
+        $("#tbd").html(arr);
+      })
+    })
+  </script>
+</head>
+<body>
+  <button value="获取数据" id="btnCreate">创建数据</button>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>歌手</th>
+          <th>代表作</th>
+        </tr>
+      </thead>
+      <tbody id="tbd"></tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标事件练习</title>
+  <style>
+    ul {
+      list-style: none;
+      position: absolute;
+      left:400px;
+      margin-top: 100px;
+    }
+    li {
+      margin-top: 10px;
+      cursor:pointer;
+      text-align: center;
+      font-size: 20px;
+    }
+  </style>
+  <script src="jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+      $("ul > li").mousemove(function(){
+        $(this).css("backgroundColor","lightGreen")
+      }).mouseout(function(){
+        $(this).parent().find("li").css("backgroundColor","")
+      }).click(function(){
+        $(this).prevAll().css("fontSize","30px").end().nextAll().css("fontFamily","全新硬笔行书简")
+      });
+    })
+  </script>
+</head>
+<body>
+    <ul>
+        <li>青岛啤酒（TsingTao）</li>
+        <li>瓦伦丁（Wurenbacher）</li>
+        <li>雪花（SNOW）</li>
+        <li>奥丁格教士（Franziskaner）</li>
+        <li>科罗娜喜力柏龙（Paulaner）</li>
+        <li>嘉士伯Kaiserdom</li>
+        <li>罗斯福（Rochefort）</li>
+        <li>粉象（Delirium）</li>
+        <li>爱士堡（Eichbaum）</li>
+        <li>哈尔滨牌蓝带</li>
+    </ul>
+</body>
+</html>

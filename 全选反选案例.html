@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>全选反选</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    .wrap {
+      width: 400px;
+      margin: 100px auto 0;
+    }
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+    th,td{
+      border: 1px solid #d0d0d0;
+      color:#404060;
+      padding: 10px;
+    }
+    th {
+      background-color: skyblue;
+      font:bold 24px "全新硬笔行书简";
+      color:#fff;
+    }
+    td {
+      font:24px "全新硬笔行书简";
+    }
+    tr {
+      background-color: #f0f0f0;
+    }
+    tr:hover {
+      cursor:pointer;
+      background-color: #fafafa;
+    }
+  </style>
+  <script src="jquery-1.12.2.js"></script>
+  <script>
+    $(function(){
+      //全选的复选框注册点击事件
+      $("#j_cbAll").click(function(){
+        //获取该复选框的选中状态，为下面所有的复选框的选中状态设置
+        var checked = $(this).prop("checked");
+        //prop()方法设置或返回被选元素的属性和值。
+        //当该方法用于返回属性值时，则返回第一个匹配元素的值
+        //当该方法用于设置属性值时，则为匹配元素集合设置一个或多个属性
+        $("#j_tb").find(":checkbox").prop("checked",checked);
+        //获取所有的复选框
+      });
+      $("#j_tb").find(":checkbox").click(function(){
+        //先获取所有复选框的个数
+        var length1 = $("#j_tb").find(":checkbox").length;
+        //获取选中的复选框个数
+        var length2 = $("#j_tb").find(":checked").length;
+        //对比个数是否相同，如果相同则全选，否则反选
+        if(length1 == length2) {
+          $("#j_cbAll").prop("checked",true);
+        }else {
+          $("#j_cbAll").prop("checked",false)
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+<div class="wrap">
+  <table>
+   <thead>
+      <tr>
+          <th><input type="checkbox" id="j_cbAll"></th>
+          <th>名称</th>
+          <th>派系</th>
+        </tr>
+   </thead>
+   <tbody id="j_tb">
+      <tr>
+        <td><input type="checkbox" ></td>
+        <td>春雨里洗过的太阳</td>
+        <td>流行</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>无法长大</td>
+        <td>民谣</td>
+      </tr>
+   </tbody>
+    
+  </table>
+</div>    
+</body>
+</html>
